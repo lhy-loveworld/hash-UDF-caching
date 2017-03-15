@@ -113,7 +113,7 @@ case class PartitionProject(projectList: Seq[Expression], child: SparkPlan) exte
       def next() = {
         //IMPLEMENT ME
         if (hasNext()) {
-          CS143Utils.generateCachingIterator(projectList, child.output)(currentRow.next())
+          CS143Utils.generateCachingIterator(projectList, child.output)(currentRow).next
         }
         else throw new RuntimeException(s"No next!")
       }
